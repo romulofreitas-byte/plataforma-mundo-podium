@@ -10,7 +10,11 @@ import { VideoFullHD } from "@/components/media/VideoFullHD";
 
 export function HeroSection() {
   return (
-    <SectionWrapper id="hero" variant="bands" className="pt-32 md:pt-40">
+    <SectionWrapper
+      id="hero"
+      variant="bands"
+      className="pt-20 pb-8 md:flex md:flex-1 md:flex-col md:justify-center md:pt-24 md:pb-10"
+    >
       <div className="grid items-center gap-12 lg:grid-cols-2">
         <RevealOnScroll>
           <Kicker>PLATAFORMA MUNDO PÓDIUM · O ECOSSISTEMA NO CIRCLE</Kicker>
@@ -43,7 +47,8 @@ export function HeroSection() {
           </div>
 
           <p className="mt-8 text-xs text-muted-2">
-            100% orgânico • +130 lives de cold call real • hospedado no Circle
+            4 frentes da casa • PódiumFlix • mentorias {site.mentorias.dias} •
+            hospedado no Circle
           </p>
         </RevealOnScroll>
 

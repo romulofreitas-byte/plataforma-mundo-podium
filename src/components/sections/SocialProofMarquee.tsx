@@ -26,7 +26,7 @@ export function SocialProofMarquee() {
 
   return (
     <div
-      className="bg-dark marquee-container relative overflow-hidden border-y border-line py-4"
+      className="bg-dark marquee-container relative shrink-0 overflow-hidden border-b border-line py-4"
       aria-hidden
     >
       <div className="marquee-track items-center gap-8 px-4">

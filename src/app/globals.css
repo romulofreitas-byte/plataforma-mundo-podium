@@ -160,6 +160,31 @@
     }
   }
 
+  /* sticky bar — header sem filete branco no topo */
+  .glass-bar {
+    background: rgba(20, 21, 27, 0.55);
+    border: none;
+    border-bottom: 1px solid rgba(36, 37, 44, 0.6);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(14px) saturate(120%);
+    -webkit-backdrop-filter: blur(14px) saturate(120%);
+  }
+
+  @media (max-width: 768px) {
+    .glass-bar {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      background: rgba(19, 20, 26, 0.92);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .glass-bar {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+  }
+
   /* premium gradient border for price card */
   .glass-premium {
     position: relative;

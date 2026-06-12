@@ -17,8 +17,10 @@ import { WhatIsSection } from "@/components/sections/WhatIsSection";
 export default function HomePage() {
   return (
     <>
-      <HeroSection />
-      <SocialProofMarquee />
+      <div className="md:flex md:min-h-svh md:flex-col">
+        <HeroSection />
+        <SocialProofMarquee />
+      </div>
       <WhatIsSection />
       <FourFrontsSection />
       <LiveCallVideosSection />
