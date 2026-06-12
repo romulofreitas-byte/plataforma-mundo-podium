@@ -1,20 +1,37 @@
 import { site } from "@/config/site";
 
+/** Preenche cada metade do track até cobrir telas largas; as duas metades são idênticas para o loop em -50%. */
+function buildInfiniteMarqueeItems(
+  phrases: readonly string[],
+  minPerHalf = 32,
+): string[] {
+  const half: string[] = [];
+  for (let i = 0; half.length < minPerHalf; i++) {
+    half.push(phrases[i % phrases.length]);
+  }
+  return [...half, ...half];
+}
+
+function MarqueeItem({ text }: { text: string }) {
+  return (
+    <span className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap text-sm font-medium text-muted">
+      <span className="h-1.5 w-1.5 rounded-full bg-gold" aria-hidden />
+      {text}
+    </span>
+  );
+}
+
 export function SocialProofMarquee() {
-  const items = [...site.marquee, ...site.marquee];
+  const items = buildInfiniteMarqueeItems(site.marquee);
 
   return (
-    <div className="overflow-hidden border-y border-line bg-bg-1 py-4">
-      <div className="marquee-track gap-8 px-4">
+    <div
+      className="bg-dark marquee-container relative overflow-hidden border-y border-line py-4"
+      aria-hidden
+    >
+      <div className="marquee-track items-center gap-8 px-4">
         {items.map((item, i) => (
-          <span
-            key={`${item}-${i}`}
-            className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap text-sm font-medium text-muted"
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-gold" aria-hidden />
-            {item}
-            <span className="text-muted-3">· TODO_ASSET depoimento</span>
-          </span>
+          <MarqueeItem key={`${item}-${i}`} text={item} />
         ))}
       </div>
     </div>

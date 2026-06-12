@@ -2,24 +2,22 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { AssetPlaceholder } from "./AssetPlaceholder";
 
 type AuthorityImageProps = {
   src: string;
   alt: string;
 };
 
+function isValidAsset(src: string): boolean {
+  if (!src || src.includes("TODO_ASSET")) return false;
+  return true;
+}
+
 export function AuthorityImage({ src, alt }: AuthorityImageProps) {
   const [error, setError] = useState(false);
 
-  if (error) {
-    return (
-      <AssetPlaceholder
-        label="TODO_ASSET: romulo.jpg"
-        aspect="portrait"
-        className="h-full"
-      />
-    );
+  if (!isValidAsset(src) || error) {
+    return null;
   }
 
   return (

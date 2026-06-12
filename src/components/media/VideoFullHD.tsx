@@ -3,7 +3,8 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import type { VideoSource } from "@/config/site";
-import { AssetPlaceholder } from "./AssetPlaceholder";
+import { hasVideoSource } from "@/lib/video";
+import { MediaSlot } from "./MediaSlot";
 
 type VideoFullHDProps = {
   source?: VideoSource | null;
@@ -14,7 +15,7 @@ type VideoFullHDProps = {
 
 export function VideoFullHD({
   source,
-  label = "TODO_ASSET",
+  label = "Vídeo",
   className = "",
   autoplayOnView = false,
 }: VideoFullHDProps) {
@@ -22,7 +23,7 @@ export function VideoFullHD({
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!autoplayOnView || !source) return;
+    if (!autoplayOnView || !hasVideoSource(source)) return;
     const el = containerRef.current;
     if (!el) return;
 
@@ -36,8 +37,8 @@ export function VideoFullHD({
     return () => observer.disconnect();
   }, [autoplayOnView, source]);
 
-  if (!source) {
-    return <AssetPlaceholder label={label} className={className} />;
+  if (!hasVideoSource(source)) {
+    return <MediaSlot variant="video" className={className} label={label} />;
   }
 
   const poster = source.poster;

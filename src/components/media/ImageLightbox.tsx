@@ -2,24 +2,51 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { AssetPlaceholder } from "./AssetPlaceholder";
+import { cn } from "@/lib/utils";
+import { MediaSlot } from "./MediaSlot";
 
 type ImageLightboxProps = {
   images: string[];
   altPrefix?: string;
+  framed?: boolean;
+  placeholderCount?: number;
 };
 
 export function ImageLightbox({
   images,
   altPrefix = "Print da plataforma",
+  framed = false,
+  placeholderCount = 3,
 }: ImageLightboxProps) {
   const [selected, setSelected] = useState<string | null>(null);
 
-  if (images.length === 0) {
+  const validImages = images.filter(
+    (src) => src && !src.includes("TODO_ASSET"),
+  );
+
+  if (validImages.length === 0) {
     return (
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {[1, 2, 3].map((i) => (
-          <AssetPlaceholder key={i} label="TODO_ASSET" aspect="video" />
+      <div
+        className={cn(
+          "grid gap-4",
+          placeholderCount <= 2
+            ? "sm:grid-cols-2"
+            : placeholderCount === 3
+              ? "sm:grid-cols-2 lg:grid-cols-3"
+              : "sm:grid-cols-2 lg:grid-cols-4",
+        )}
+      >
+        {Array.from({ length: placeholderCount }, (_, i) => (
+          <div
+            key={i}
+            className={cn(framed && "media-frame overflow-hidden rounded-[14px]")}
+          >
+            <MediaSlot
+              variant="image"
+              label={`${altPrefix} ${i + 1}`}
+              className={framed ? "!rounded-none" : "rounded-[14px] border border-line"}
+            />
+          </div>
         ))}
       </div>
     );
@@ -28,12 +55,15 @@ export function ImageLightbox({
   return (
     <>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {images.map((src, i) => (
+        {validImages.map((src, i) => (
           <button
             key={src}
             type="button"
             onClick={() => setSelected(src)}
-            className="group relative aspect-video overflow-hidden rounded-[14px] border border-line focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+            className={cn(
+              "group relative aspect-video overflow-hidden rounded-[14px] border border-line focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold",
+              framed && "media-frame border-transparent",
+            )}
           >
             <Image
               src={src}

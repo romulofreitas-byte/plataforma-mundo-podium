@@ -19,7 +19,7 @@ export function Badge({ variant = "default", children, className }: BadgeProps) 
     >
       {variant === "live" && (
         <span
-          className="h-2 w-2 rounded-full bg-gold animate-pulse-live"
+          className="live-dot h-2 w-2 rounded-full bg-gold"
           aria-hidden="true"
         />
       )}

@@ -11,6 +11,10 @@ export function AssetPlaceholder({
   aspect = "video",
   className = "",
 }: AssetPlaceholderProps) {
+  if (!label || label.includes("TODO_ASSET")) {
+    return null;
+  }
+
   const aspectClass =
     aspect === "video"
       ? "aspect-video"

@@ -9,7 +9,7 @@ import { VideoFullHD } from "@/components/media/VideoFullHD";
 
 export function PlatformTourSection() {
   return (
-    <SectionWrapper id="demonstracao">
+    <SectionWrapper id="demonstracao" variant="dark">
       <RevealOnScroll>
         <Kicker>POR DENTRO</Kicker>
         <HighlightHeadline
@@ -20,16 +20,21 @@ export function PlatformTourSection() {
       </RevealOnScroll>
 
       <RevealOnScroll className="mt-10">
-        <VideoFullHD
-          source={site.videos.tour}
-          label="TODO_ASSET: tour-circle.mp4 ou YouTube"
-        />
+        <div className="media-frame">
+          <VideoFullHD
+            source={site.videos.tour}
+            label="Tour pela plataforma no Circle"
+            className="!rounded-none !border-0"
+          />
+        </div>
       </RevealOnScroll>
 
       <RevealOnScroll className="mt-10">
         <ImageLightbox
           images={site.demos.prints}
           altPrefix="Print do Circle"
+          framed
+          placeholderCount={3}
         />
       </RevealOnScroll>
 

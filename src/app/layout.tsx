@@ -65,7 +65,7 @@ export default function RootLayout({
         <GoogleAnalytics />
         <MetaPixel />
         <Header />
-        <main>{children}</main>
+        <main className="pb-[76px] md:pb-0">{children}</main>
         <StickyCTA />
       </body>
     </html>

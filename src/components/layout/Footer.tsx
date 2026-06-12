@@ -12,7 +12,12 @@ const socials = [
 
 export function Footer() {
   return (
-    <SectionWrapper as="footer" className="border-t border-line pb-32 md:pb-24">
+    <SectionWrapper
+      as="footer"
+      variant="bands"
+      bandsSubtle
+      className="border-t border-line"
+    >
       <div className="flex flex-col items-center gap-8 text-center">
         <Logo />
         <p className="max-w-xl text-sm font-medium text-muted">

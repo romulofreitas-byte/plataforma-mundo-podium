@@ -1,3 +1,7 @@
+"use client";
+
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useCallback, useState } from "react";
 import { site } from "@/config/site";
 import { IconLine, type IconName } from "@/components/icons/IconLine";
 import { Badge } from "@/components/ui/Badge";
@@ -6,13 +10,23 @@ import { CtaButton } from "@/components/ui/CtaButton";
 import { HighlightHeadline } from "@/components/ui/HighlightHeadline";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
+import { cn } from "@/lib/utils";
+import { fadeUpTransition } from "@/lib/motion";
 
 type Space = { icon: IconName; name: string; desc: string; live?: boolean };
 
-type Front = { title: string; subtitle: string; spaces: Space[] };
+type Front = {
+  id: string;
+  tab: string;
+  title: string;
+  subtitle: string;
+  spaces: Space[];
+};
 
-const fronts: Front[] = [
+const frentes: Front[] = [
   {
+    id: "central",
+    tab: "Central",
     title: "Central Pódium",
     subtitle: "recepção e operação",
     spaces: [
@@ -34,6 +48,8 @@ const fronts: Front[] = [
     ],
   },
   {
+    id: "comunidade",
+    tab: "Comunidade",
     title: "Comunidade Pódium",
     subtitle: "vida social e acervo",
     spaces: [
@@ -75,6 +91,8 @@ const fronts: Front[] = [
     ],
   },
   {
+    id: "coaching",
+    tab: "Coaching",
     title: "Coaching Pódium",
     subtitle: "acompanhamento de perto",
     spaces: [
@@ -101,6 +119,8 @@ const fronts: Front[] = [
     ],
   },
   {
+    id: "box",
+    tab: "Cursos|Box",
     title: "Cursos | Box Pódium",
     subtitle: "o conteúdo estruturado e o coração da entrega",
     spaces: [
@@ -129,9 +149,35 @@ const fronts: Front[] = [
   },
 ];
 
+const panelVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -8 },
+};
+
 export function FourFrontsSection() {
+  const [activeId, setActiveId] = useState(frentes[0].id);
+  const reduced = useReducedMotion();
+  const activeFront = frentes.find((f) => f.id === activeId) ?? frentes[0];
+
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent, index: number) => {
+      let next = index;
+      if (e.key === "ArrowRight") next = (index + 1) % frentes.length;
+      else if (e.key === "ArrowLeft") next = (index - 1 + frentes.length) % frentes.length;
+      else if (e.key === "Home") next = 0;
+      else if (e.key === "End") next = frentes.length - 1;
+      else return;
+
+      e.preventDefault();
+      setActiveId(frentes[next].id);
+      document.getElementById(`tab-${frentes[next].id}`)?.focus();
+    },
+    [],
+  );
+
   return (
-    <SectionWrapper id="espacos">
+    <SectionWrapper id="espacos" variant="dark">
       <RevealOnScroll>
         <HighlightHeadline
           text="Tudo que você encontra dentro da casa."
@@ -140,34 +186,72 @@ export function FourFrontsSection() {
         />
       </RevealOnScroll>
 
-      <div className="mt-14 space-y-16">
-        {fronts.map((front, fi) => (
-          <RevealOnScroll key={front.title} delay={fi * 0.05}>
-            <div>
-              <h3 className="text-xl font-bold text-white">
-                FRENTE {fi + 1} — {front.title}
-              </h3>
-              <p className="mt-1 text-sm italic text-muted-2">{front.subtitle}</p>
+      <div className="mt-10">
+        <div
+          role="tablist"
+          aria-label="Frentes da plataforma"
+          className="flex gap-2 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:flex-wrap md:overflow-visible"
+        >
+          {frentes.map((front, index) => {
+            const isActive = activeId === front.id;
+            return (
+              <button
+                key={front.id}
+                id={`tab-${front.id}`}
+                role="tab"
+                type="button"
+                aria-selected={isActive}
+                aria-controls={`panel-${front.id}`}
+                tabIndex={isActive ? 0 : -1}
+                onClick={() => setActiveId(front.id)}
+                onKeyDown={(e) => handleKeyDown(e, index)}
+                className={cn(
+                  "shrink-0 rounded-full px-4 py-2 text-sm font-bold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold",
+                  isActive ? "tab-pill-active" : "tab-pill-inactive",
+                )}
+              >
+                {front.tab}
+              </button>
+            );
+          })}
+        </div>
 
-              <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {front.spaces.map((space) => (
-                  <Card key={space.name} className="flex gap-4">
-                    <IconLine name={space.icon} size={24} />
-                    <div>
-                      <div className="flex flex-wrap items-center gap-2">
-                        <h4 className="font-semibold text-white">{space.name}</h4>
-                        {space.live && <Badge variant="live">AO VIVO</Badge>}
-                      </div>
-                      <p className="mt-1 text-sm font-medium text-muted">
-                        {space.desc}
-                      </p>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeFront.id}
+            id={`panel-${activeFront.id}`}
+            role="tabpanel"
+            aria-labelledby={`tab-${activeFront.id}`}
+            variants={reduced ? undefined : panelVariants}
+            initial={reduced ? false : "hidden"}
+            animate="visible"
+            exit={reduced ? undefined : "exit"}
+            transition={{ ...fadeUpTransition, duration: 0.25 }}
+            className="mt-8"
+          >
+            <h3 className="text-xl font-bold text-white">
+              {activeFront.title}
+            </h3>
+            <p className="mt-1 text-sm italic text-muted-2">{activeFront.subtitle}</p>
+
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {activeFront.spaces.map((space) => (
+                <Card key={space.name} interactive className="flex gap-4">
+                  <IconLine name={space.icon} size={24} />
+                  <div>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <h4 className="font-semibold text-white">{space.name}</h4>
+                      {space.live && <Badge variant="live">AO VIVO</Badge>}
                     </div>
-                  </Card>
-                ))}
-              </div>
+                    <p className="mt-1 text-sm font-medium text-muted">
+                      {space.desc}
+                    </p>
+                  </div>
+                </Card>
+              ))}
             </div>
-          </RevealOnScroll>
-        ))}
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       <RevealOnScroll className="mt-12 text-center">

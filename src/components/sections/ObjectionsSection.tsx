@@ -25,7 +25,7 @@ const objections = [
 
 export function ObjectionsSection() {
   return (
-    <SectionWrapper>
+    <SectionWrapper variant="warm">
       <RevealOnScroll>
         <HighlightHeadline
           text="Por que treinar aqui, e não em mais um curso."
@@ -37,8 +37,11 @@ export function ObjectionsSection() {
       <div className="mt-10 grid gap-6 sm:grid-cols-2">
         {objections.map((o, i) => (
           <RevealOnScroll key={o.problema} delay={i * 0.08}>
-            <Card accent className="h-full">
-              <p className="text-sm font-semibold text-muted-2 line-through decoration-muted-3">
+            <Card accent interactive className="h-full">
+              <p className="flex items-start gap-2 text-sm font-semibold text-[#8C8F99]">
+                <span className="shrink-0 text-gold/50" aria-hidden>
+                  ✕
+                </span>
                 {o.problema}
               </p>
               <p className="mt-3 text-base font-bold text-white">{o.solucao}</p>

@@ -15,7 +15,7 @@ const beneficios = [
 
 export function MentorshipSection() {
   return (
-    <SectionWrapper warm>
+    <SectionWrapper variant="warm">
       <RevealOnScroll>
         <Kicker>ACOMPANHAMENTO AO VIVO</Kicker>
         <HighlightHeadline
@@ -33,7 +33,7 @@ export function MentorshipSection() {
       <div className="mt-10 grid gap-6 sm:grid-cols-2">
         {["Segunda", "Quinta"].map((dia) => (
           <RevealOnScroll key={dia}>
-            <Card accent className="text-center">
+            <Card accent interactive className="text-center">
               <IconLine name="relogio" className="mx-auto mb-4" />
               <p className="text-2xl font-bold text-white">{dia}</p>
               <p className="mt-1 text-lg font-semibold text-gold">

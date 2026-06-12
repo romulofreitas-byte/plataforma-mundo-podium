@@ -15,7 +15,7 @@ const audience = [
 
 export function TargetAudienceSection() {
   return (
-    <SectionWrapper>
+    <SectionWrapper variant="dark">
       <RevealOnScroll>
         <HighlightHeadline
           text="Pra quem é a casa."
@@ -27,7 +27,7 @@ export function TargetAudienceSection() {
       <div className="mt-10 grid gap-4 sm:grid-cols-2">
         {audience.map((item, i) => (
           <RevealOnScroll key={item} delay={i * 0.06}>
-            <Card className="flex items-start gap-3">
+            <Card interactive className="flex items-start gap-3">
               <IconLine name="check" size={22} className="mt-0.5 shrink-0" />
               <p className="font-medium text-muted">{item}</p>
             </Card>

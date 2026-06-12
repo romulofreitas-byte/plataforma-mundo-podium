@@ -31,7 +31,7 @@ const pontos = [
 
 export function LiveRaceSection() {
   return (
-    <SectionWrapper>
+    <SectionWrapper variant="bands">
       <RevealOnScroll>
         <Kicker>GAMIFICAÇÃO</Kicker>
         <HighlightHeadline
@@ -50,7 +50,7 @@ export function LiveRaceSection() {
       <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {pontos.map((p, i) => (
           <RevealOnScroll key={p.title} delay={i * 0.08}>
-            <Card className="h-full">
+            <Card interactive className="h-full">
               <IconLine name={p.icon} className="mb-3" />
               <h3 className="font-bold text-white">{p.title}</h3>
               <p className="mt-2 text-sm font-medium text-muted">{p.desc}</p>

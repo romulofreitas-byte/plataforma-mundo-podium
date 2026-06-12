@@ -1,5 +1,4 @@
 import { site } from "@/config/site";
-import { Card } from "@/components/ui/Card";
 import { CtaButton } from "@/components/ui/CtaButton";
 import { HighlightHeadline } from "@/components/ui/HighlightHeadline";
 import { IconLine } from "@/components/icons/IconLine";
@@ -10,7 +9,7 @@ const pagamentos = ["Pix", "Cartão", "Boleto"];
 
 export function OfferSection() {
   return (
-    <SectionWrapper warm id="oferta">
+    <SectionWrapper variant="warm" warmGlow="strong" id="oferta">
       <RevealOnScroll className="text-center">
         <HighlightHeadline
           text="A casa tá aberta."
@@ -20,7 +19,7 @@ export function OfferSection() {
       </RevealOnScroll>
 
       <RevealOnScroll className="mx-auto mt-10 max-w-lg">
-        <Card accent className="text-center">
+        <div className="glass-premium relative overflow-hidden rounded-[14px] p-6 text-center">
           <p className="text-4xl font-extrabold text-gold">
             {site.precoMensal}
             <span className="text-lg font-medium text-muted">/mês</span>
@@ -58,7 +57,7 @@ export function OfferSection() {
           {site.cancelamentoLivre && (
             <p className="mt-4 text-xs text-muted-2">Cancele quando quiser.</p>
           )}
-        </Card>
+        </div>
       </RevealOnScroll>
 
       {site.escassez.ativo && site.escassez.texto && (

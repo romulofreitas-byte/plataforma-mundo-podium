@@ -1,19 +1,21 @@
 import { site } from "@/config/site";
 import { Card } from "@/components/ui/Card";
 import { CtaButton } from "@/components/ui/CtaButton";
+import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { HighlightHeadline } from "@/components/ui/HighlightHeadline";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
-import { AuthorityImage } from "@/components/media/AuthorityImage";
+import { AuthorityPhotoFrame } from "@/components/media/AuthorityPhotoFrame";
 
 export function AuthoritySection() {
   return (
-    <SectionWrapper>
+    <SectionWrapper variant="bands">
       <div className="grid items-center gap-12 lg:grid-cols-2">
         <RevealOnScroll>
-          <div className="relative mx-auto aspect-[3/4] w-full max-w-sm overflow-hidden rounded-[14px] border border-line bg-card">
-            <AuthorityImage src={site.autoridade.foto} alt="Rômulo Freitas" />
-          </div>
+          <AuthorityPhotoFrame
+            src={site.autoridade.foto}
+            alt="Rômulo Freitas"
+          />
         </RevealOnScroll>
 
         <RevealOnScroll delay={0.1}>
@@ -31,8 +33,11 @@ export function AuthoritySection() {
 
           <div className="mt-8 grid gap-4 sm:grid-cols-3">
             {site.autoridade.metricas.map((m) => (
-              <Card key={m.label} className="text-center">
-                <p className="text-lg font-extrabold text-gold">{m.valor}</p>
+              <Card key={m.label} glass interactive className="text-center">
+                <AnimatedCounter
+                  value={m.valor}
+                  className="text-lg font-extrabold text-gold"
+                />
                 <p className="mt-1 text-xs font-medium text-muted">{m.label}</p>
               </Card>
             ))}

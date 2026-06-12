@@ -10,20 +10,20 @@ import { VideoFullHD } from "@/components/media/VideoFullHD";
 
 export function HeroSection() {
   return (
-    <SectionWrapper id="hero" className="pt-32 md:pt-40">
+    <SectionWrapper id="hero" variant="bands" className="pt-32 md:pt-40">
       <div className="grid items-center gap-12 lg:grid-cols-2">
         <RevealOnScroll>
           <Kicker>PLATAFORMA MUNDO PÓDIUM · O ECOSSISTEMA NO CIRCLE</Kicker>
           <HighlightHeadline
             as="h1"
-            text="Aqui você não assiste sobre cold call. Você liga — ao vivo."
+            text="Aqui você não assiste cold call. Você liga — ao vivo."
             highlight="ao vivo"
-            className="text-3xl sm:text-4xl lg:text-5xl"
+            className="max-w-2xl text-balance text-3xl sm:text-4xl lg:text-5xl"
           />
           <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-muted sm:text-lg">
             A casa onde os Pilotos treinam prospecção de verdade: ligação real ao
-            vivo, comunidade e mentorias com método. Você sai de &apos;tenho medo de
-            ligar&apos; para &apos;agendo reunião por telefone&apos;.
+            vivo, comunidade e mentorias com método. Você sai de &ldquo;tenho medo de
+            ligar&rdquo; para &ldquo;agendo reunião por telefone&rdquo;.
           </p>
 
           <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -48,10 +48,13 @@ export function HeroSection() {
         </RevealOnScroll>
 
         <RevealOnScroll delay={0.15}>
-          <VideoFullHD
-            source={site.videos.hero}
-            label="TODO_ASSET: corte Sala de Ligação"
-          />
+          <div className="media-frame">
+            <VideoFullHD
+              source={site.videos.hero}
+              label="Corte da Sala de Ligação"
+              className="!rounded-none !border-0"
+            />
+          </div>
         </RevealOnScroll>
       </div>
     </SectionWrapper>

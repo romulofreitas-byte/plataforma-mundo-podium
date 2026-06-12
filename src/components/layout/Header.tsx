@@ -20,9 +20,7 @@ export function Header() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled
-          ? "border-b border-line bg-base/95 backdrop-blur-md"
-          : "bg-transparent",
+        scrolled ? "glass border-b border-transparent" : "bg-transparent",
       )}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">

@@ -22,12 +22,14 @@ export function StickyCTA() {
 
   return (
     <>
-      {/* Mobile bar */}
+      {/* Mobile bar — full width, pushes content via layout padding */}
       <div
         className={cn(
-          "fixed inset-x-0 bottom-0 z-50 border-t border-line bg-base/95 p-3 backdrop-blur-md transition-transform duration-300 md:hidden",
+          "fixed inset-x-0 bottom-0 z-50 glass border-t border-transparent p-3 transition-transform duration-300 md:hidden",
           visible ? "translate-y-0" : "translate-y-full",
         )}
+        role="region"
+        aria-label="Chamada para ação"
       >
         <CtaButton size="lg" className="w-full">
           {site.precoMensal}/mês · Entrar na casa
@@ -37,11 +39,12 @@ export function StickyCTA() {
       {/* Desktop floating */}
       <div
         className={cn(
-          "fixed bottom-8 right-8 z-50 hidden transition-all duration-300 md:block",
+          "fixed bottom-8 right-8 z-40 hidden transition-all duration-300 md:block",
           visible
             ? "translate-y-0 opacity-100"
             : "pointer-events-none translate-y-4 opacity-0",
         )}
+        aria-hidden={!visible}
       >
         <CtaButton size="lg" className="shadow-gold-lg">
           {site.precoMensal}/mês · Entrar na casa

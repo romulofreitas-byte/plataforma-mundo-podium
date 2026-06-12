@@ -30,7 +30,7 @@ export function LiveCallVideosSection() {
     : site.videos.salaLigacaoPrincipal;
 
   return (
-    <SectionWrapper id="sala-ligacao">
+    <SectionWrapper id="sala-ligacao" variant="bands">
       <RevealOnScroll>
         <Badge variant="live" className="mb-4">
           AO VIVO
@@ -47,14 +47,17 @@ export function LiveCallVideosSection() {
       </RevealOnScroll>
 
       <RevealOnScroll className="mt-10">
-        <VideoFullHD
-          source={
-            hasVideoSource(activeSource)
-              ? activeSource
-              : site.videos.salaLigacaoPrincipal
-          }
-          label="TODO_ASSET: /videos/sala-ligacao/*.mp4"
-        />
+        <div className="media-frame">
+          <VideoFullHD
+            source={
+              hasVideoSource(activeSource)
+                ? activeSource
+                : site.videos.salaLigacaoPrincipal
+            }
+            label="Ligação ao vivo — Sala de Ligação"
+            className="!rounded-none !border-0"
+          />
+        </div>
       </RevealOnScroll>
 
       <div className="mt-6 flex gap-3 overflow-x-auto pb-2">
@@ -64,17 +67,17 @@ export function LiveCallVideosSection() {
             type="button"
             onClick={() => setActiveIndex(i)}
             className={cn(
-              "min-w-[200px] shrink-0 rounded-[14px] border p-3 text-left transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold",
+              "min-w-[200px] shrink-0 rounded-[14px] p-3 text-left transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold",
               activeIndex === i
-                ? "border-gold bg-card"
-                : "border-line bg-card/50 hover:border-gold/40",
+                ? "glass border-gold/40"
+                : "border border-line bg-card/50 hover:border-gold/40",
             )}
             aria-pressed={activeIndex === i}
           >
-            <div className="mb-2 aspect-video rounded-lg bg-bg-1">
+            <div className="mb-2 aspect-video overflow-hidden rounded-lg">
               <VideoFullHD
                 source={hasVideoSource(item) ? item : null}
-                label="TODO_ASSET"
+                label={item.legenda}
                 className="!rounded-lg !border-0"
               />
             </div>

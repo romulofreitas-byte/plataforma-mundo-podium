@@ -4,13 +4,23 @@ type CardProps = {
   children: React.ReactNode;
   className?: string;
   accent?: boolean;
+  interactive?: boolean;
+  glass?: boolean;
 };
 
-export function Card({ children, className, accent = false }: CardProps) {
+export function Card({
+  children,
+  className,
+  accent = false,
+  interactive = false,
+  glass = false,
+}: CardProps) {
   return (
     <div
       className={cn(
         "relative overflow-hidden rounded-[14px] border border-line bg-card p-6",
+        glass && "glass border-transparent bg-transparent",
+        interactive && "card-interactive",
         accent && "pt-7",
         className,
       )}

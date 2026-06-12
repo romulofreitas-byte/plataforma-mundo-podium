@@ -26,7 +26,7 @@ const pilares = [
 
 export function WhatIsSection() {
   return (
-    <SectionWrapper>
+    <SectionWrapper variant="warm">
       <RevealOnScroll>
         <Kicker>O QUE É</Kicker>
         <HighlightHeadline
@@ -44,7 +44,7 @@ export function WhatIsSection() {
       <div className="mt-12 grid gap-6 md:grid-cols-3">
         {pilares.map((p, i) => (
           <RevealOnScroll key={p.title} delay={i * 0.1}>
-            <Card accent className="h-full">
+            <Card accent interactive className="h-full">
               <IconLine name={p.icon} className="mb-4" />
               <h3 className="text-lg font-bold text-white">{p.title}</h3>
               <p className="mt-2 text-sm font-medium text-muted">{p.desc}</p>

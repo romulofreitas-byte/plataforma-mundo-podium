@@ -32,11 +32,11 @@ export function Button({
   };
 
   const styles = cn(
-    "inline-flex items-center justify-center rounded-[10px] font-bold transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold",
+    "inline-flex items-center justify-center rounded-[10px] font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold",
     sizes[size],
     variant === "gold"
-      ? "bg-gold text-base hover:shadow-gold"
-      : "border border-line bg-transparent text-white hover:border-gold/50 hover:text-gold",
+      ? "cta-glow bg-gold text-base hover:shadow-gold"
+      : "border border-line bg-transparent text-white transition-all hover:border-gold/50 hover:text-gold",
     className,
   );
 

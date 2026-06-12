@@ -11,7 +11,7 @@ export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <SectionWrapper id="faq">
+    <SectionWrapper id="faq" variant="dark">
       <RevealOnScroll>
         <HighlightHeadline
           text="Perguntas frequentes."
