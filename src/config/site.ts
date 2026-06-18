@@ -77,7 +77,7 @@ export const site = {
   },
   escassez: { ativo: false, texto: "" },
   ga4Id: process.env.NEXT_PUBLIC_GA4_ID ?? "[[CONFIG: GA4_ID]]",
-  metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "[[CONFIG: META_PIXEL_ID]]",
+  metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID ?? "878170965336988",
   niveis: {
     entrada: "Pit Stop",
     principal: "Acelerador",
