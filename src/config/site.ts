@@ -66,7 +66,7 @@ export const site = {
   precoMensal,
   precoAncora: "",
   checkoutUrl:
-    "https://plataforma.mundopodium.com.br/checkout/plataforma-mundo-podium",
+    "https://plataforma.mundopodium.com.br/checkout/plataforma-mundo-podium-casa",
   whatsapp: "https://wa.me/5531994293099",
   instagram: "https://instagram.com/romulocsfreitas",
   youtube: "https://youtube.com/@combustivelmv",
