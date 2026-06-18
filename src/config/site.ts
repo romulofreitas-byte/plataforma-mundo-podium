@@ -85,8 +85,8 @@ export const site = {
   },
   legal: {
     cnpj: "43.393.622/0001-30",
-    politicaPrivacidade: "",
-    termos: "",
+    politicaPrivacidade: "/politica-de-privacidade",
+    termos: "/termos-de-uso",
     email: "contato@mundopodium.com.br",
   },
   cancelamentoLivre: true,
