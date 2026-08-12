@@ -85,7 +85,7 @@ const frentes: Front[] = [
       },
       {
         icon: "alvo",
-        name: "Desafio Semanal",
+        name: "Desafio Pódium",
         desc: "Toda semana, uma missão pra manter o ritmo.",
       },
     ],
@@ -142,7 +142,7 @@ const frentes: Front[] = [
       },
       {
         icon: "documento",
-        name: "Clube de Cases / Sala de Contratos",
+        name: "Sala de Contratos",
         desc: "Do discurso ao contrato: o caminho até o fechamento.",
       },
     ],

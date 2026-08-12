@@ -81,7 +81,7 @@ export const site = {
   niveis: {
     entrada: "Pit Stop",
     principal: "Acelerador",
-    apice: "Elite",
+    apice: "Elite Pódium",
   },
   legal: {
     cnpj: "68.349.974/0001-19",
