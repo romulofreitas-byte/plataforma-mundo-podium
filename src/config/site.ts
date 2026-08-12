@@ -48,7 +48,7 @@ const faqItems: FaqItem[] = [
   {
     pergunta: "Funciona pro meu nicho?",
     resposta:
-      "Sim. Freelancers, agências, SDRs, donos de negócio e até mercado regulado (assessores de investimento) treinam aqui.",
+      "Sim. Freelancers, agências, SDRs, donos de negócio, corretores/consultores de seguros e plano de saúde e até mercado regulado (assessores de investimento) treinam aqui.",
   },
   {
     pergunta: "Quanto custa e como cancelo?",
@@ -69,7 +69,7 @@ export const site = {
     "https://plataforma.mundopodium.com.br/checkout/plataforma-mundo-podium-casa",
   whatsapp: "https://wa.me/5531994293099",
   instagram: "https://instagram.com/romulocsfreitas",
-  youtube: "https://youtube.com/@combustivelmv",
+  youtube: "https://youtube.com/@mundopodium",
   mentorias: {
     dias: "Segunda e Quinta",
     hora: "11h",
@@ -84,7 +84,7 @@ export const site = {
     apice: "Elite",
   },
   legal: {
-    cnpj: "43.393.622/0001-30",
+    cnpj: "68.349.974/0001-19",
     politicaPrivacidade: "/politica-de-privacidade",
     termos: "/termos-de-uso",
     email: "contato@mundopodium.com.br",

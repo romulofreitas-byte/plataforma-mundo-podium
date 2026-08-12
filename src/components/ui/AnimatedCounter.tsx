@@ -27,12 +27,6 @@ export function AnimatedCounter({ value, className }: AnimatedCounterProps) {
   const parsed = parseCounter(value);
 
   const [count, setCount] = useState(0);
-  const hasAnimated = useRef(false);
-
-  useEffect(() => {
-    hasAnimated.current = false;
-    setCount(0);
-  }, [value]);
 
   useEffect(() => {
     const p = parseCounter(value);
@@ -40,12 +34,8 @@ export function AnimatedCounter({ value, className }: AnimatedCounterProps) {
 
     if (reduced) {
       setCount(p.number);
-      hasAnimated.current = true;
       return;
     }
-
-    if (hasAnimated.current) return;
-    hasAnimated.current = true;
 
     const target = p.number;
     const duration = 1000;
