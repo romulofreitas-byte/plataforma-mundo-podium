@@ -39,11 +39,11 @@ const faqItems: FaqItem[] = [
     resposta:
       "Sim. Tudo fica gravado na casa pra você rever quando quiser, incluindo no PódiumFlix.",
   },
-  {
-    pergunta: "Como funciona a Corrida ao Vivo e os brindes?",
-    resposta:
-      "Cada interação na casa — participar, comentar, mostrar resultado, ajudar outro Piloto — vira pontos. Pontos viram brindes oficiais do Mundo Pódium.",
-  },
+  // {
+  //   pergunta: "Como funciona a Corrida ao Vivo e os brindes?",
+  //   resposta:
+  //     "Cada interação na casa — participar, comentar, mostrar resultado, ajudar outro Piloto — vira pontos. Pontos viram brindes oficiais do Mundo Pódium.",
+  // },
   {
     pergunta: "Preciso ter experiência?",
     resposta:
@@ -75,14 +75,20 @@ export const site = {
   trial: {
     dias: 7,
     rotulo: "7 dias de teste",
-    notaHero: `R$ 0 hoje. Depois, ${precoMensal}/mês. Cancele quando quiser.`,
+    notaHeroDestaque: "R$ 0 hoje.",
+    notaHero: `Depois, ${precoMensal}/mês. Cancele quando quiser.`,
     notaOferta: "R$ 0 hoje. Depois vira a assinatura mensal.",
   },
   pagamentos: ["Cartão"] as const,
   cta: {
-    teste: "Começar 7 dias de teste",
+    teste: "Começar 7 dias grátis",
     casa: "Entrar na casa",
-    sticky: "7 dias de teste · Entrar",
+    sticky: "7 dias grátis · Entrar",
+    verPorDentro: "Ver por dentro",
+  },
+  heroKicker: {
+    lead: "PLATAFORMA MUNDO PÓDIUM",
+    trail: "O ECOSSISTEMA NO CIRCLE",
   },
   checkoutUrl:
     "https://plataforma.mundopodium.com.br/checkout/plataforma-mundo-podium-casa",
@@ -236,6 +242,6 @@ export const site = {
     "Mentorias Segunda e Quinta, 11h",
     "PódiumFlix — biblioteca de aulas",
     "Comunidade de Pilotos",
-    "Corrida ao Vivo — gamificação e brindes",
+    // "Corrida ao Vivo — gamificação e brindes", // oculto com a seção de gamificação
   ],
 } as const;

@@ -75,7 +75,7 @@
       radial-gradient(40% 35% at 20% 60%, rgba(244, 183, 30, 0.08), transparent 70%);
   }
 
-  /* bands — faixas diagonais + glow frio sutil */
+  /* bands — painéis angulares diagonais (grafite, sem glow circular) */
   .bg-bands {
     background-color: #0a0b10;
   }
@@ -86,38 +86,28 @@
     inset: 0;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.5;
-    background: repeating-linear-gradient(
-      99deg,
-      #0f1016 0 180px,
-      #08090c 180px 360px,
-      #0e0f15 360px 540px
-    );
-    mask-image: linear-gradient(180deg, transparent, #000 12%, #000 88%, transparent);
-    -webkit-mask-image: linear-gradient(
-      180deg,
-      transparent,
-      #000 12%,
-      #000 88%,
-      transparent
-    );
-  }
-
-  .bg-bands::after {
-    content: "";
-    position: absolute;
-    top: -120px;
-    left: -80px;
-    width: 480px;
-    height: 480px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(22, 23, 31, 0.35) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
+    opacity: 0.85;
+    background:
+      linear-gradient(115deg, #12131a 0 22%, transparent 22.15%),
+      linear-gradient(
+        115deg,
+        transparent 0%,
+        transparent 38%,
+        #16171f 38%,
+        #16171f 54%,
+        transparent 54.15%
+      ),
+      linear-gradient(115deg, transparent 0%, transparent 78%, #0c0d12 78%),
+      repeating-linear-gradient(
+        99deg,
+        #0f1016 0 160px,
+        #08090c 160px 280px,
+        #0e0f15 280px 420px
+      );
   }
 
   .bg-bands-subtle::before {
-    opacity: 0.3;
+    opacity: 0.35;
   }
 
   .vignette::after {

@@ -15,9 +15,13 @@ export function HeroSection() {
       variant="bands"
       className="pt-20 pb-8 md:flex md:flex-1 md:flex-col md:justify-center md:pt-24 md:pb-10"
     >
-      <div className="grid items-center gap-12 lg:grid-cols-2">
+      <div className="grid items-stretch gap-12 lg:grid-cols-2">
         <RevealOnScroll>
-          <Kicker>PLATAFORMA MUNDO PÓDIUM · O ECOSSISTEMA NO CIRCLE</Kicker>
+          <Kicker className="max-w-none tracking-[0.12em] sm:tracking-[0.14em] lg:tracking-kicker">
+            <span className="whitespace-nowrap">{site.heroKicker.lead}</span>
+            {" · "}
+            <span className="whitespace-nowrap">{site.heroKicker.trail}</span>
+          </Kicker>
           <HighlightHeadline
             as="h1"
             text="Aqui você não assiste cold call. Você liga — ao vivo."
@@ -38,13 +42,25 @@ export function HeroSection() {
           </div>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <CtaButton size="lg">{site.cta.teste}</CtaButton>
-            <Button variant="ghost" size="lg" scrollTo="#demonstracao">
-              Ver a casa por dentro
+            <CtaButton size="lg" className="whitespace-nowrap">
+              {site.cta.teste}
+            </CtaButton>
+            <Button
+              variant="ghost"
+              size="lg"
+              scrollTo="#demonstracao"
+              className="whitespace-nowrap"
+            >
+              {site.cta.verPorDentro}
             </Button>
           </div>
 
-          <p className="mt-3 text-xs text-muted-2">{site.trial.notaHero}</p>
+          <p className="mt-3 text-xs text-muted-2">
+            <strong className="font-bold text-white">
+              {site.trial.notaHeroDestaque}
+            </strong>{" "}
+            {site.trial.notaHero}
+          </p>
 
           <p className="mt-8 text-xs text-muted-2">
             4 frentes da casa • PódiumFlix • mentorias {site.mentorias.dias} •
@@ -52,7 +68,7 @@ export function HeroSection() {
           </p>
         </RevealOnScroll>
 
-        <RevealOnScroll delay={0.15}>
+        <RevealOnScroll delay={0.15} className="flex h-full flex-col">
           <div className="media-frame">
             <VideoFullHD
               source={site.videos.hero}
@@ -60,6 +76,18 @@ export function HeroSection() {
               className="!rounded-none !border-0"
             />
           </div>
+          <ul className="mt-auto grid grid-cols-3 gap-3 border-t border-line pt-6">
+            {site.autoridade.metricas.map((metrica) => (
+              <li key={metrica.label} className="text-center">
+                <p className="text-base font-bold text-white">
+                  {metrica.valor}
+                </p>
+                <p className="mt-1 text-[10px] uppercase tracking-wide text-muted-2 sm:text-xs">
+                  {metrica.label}
+                </p>
+              </li>
+            ))}
+          </ul>
         </RevealOnScroll>
       </div>
     </SectionWrapper>

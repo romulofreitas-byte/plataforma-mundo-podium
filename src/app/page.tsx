@@ -4,7 +4,6 @@ import { FaqSection } from "@/components/sections/FaqSection";
 import { FourFrontsSection } from "@/components/sections/FourFrontsSection";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { LiveCallVideosSection } from "@/components/sections/LiveCallVideosSection";
-import { LiveRaceSection } from "@/components/sections/LiveRaceSection";
 import { MentorshipSection } from "@/components/sections/MentorshipSection";
 import { ObjectionsSection } from "@/components/sections/ObjectionsSection";
 import { OfferSection } from "@/components/sections/OfferSection";
@@ -26,7 +25,7 @@ export default function HomePage() {
       <LiveCallVideosSection />
       <PlatformTourSection />
       <MentorshipSection />
-      <LiveRaceSection />
+      {/* Corrida ao Vivo / gamificação — oculto temporariamente; reativar com <LiveRaceSection /> */}
       <TargetAudienceSection />
       <ObjectionsSection />
       <TestimonialsSection />
