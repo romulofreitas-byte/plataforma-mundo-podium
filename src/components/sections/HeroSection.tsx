@@ -38,13 +38,13 @@ export function HeroSection() {
           </div>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <CtaButton size="lg">
-              Entrar na Plataforma — {site.precoMensal}/mês
-            </CtaButton>
+            <CtaButton size="lg">{site.cta.teste}</CtaButton>
             <Button variant="ghost" size="lg" scrollTo="#demonstracao">
               Ver a casa por dentro
             </Button>
           </div>
+
+          <p className="mt-3 text-xs text-muted-2">{site.trial.notaHero}</p>
 
           <p className="mt-8 text-xs text-muted-2">
             4 frentes da casa • PódiumFlix • mentorias {site.mentorias.dias} •

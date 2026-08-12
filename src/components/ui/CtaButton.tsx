@@ -11,7 +11,7 @@ type CtaButtonProps = {
 };
 
 export function CtaButton({
-  children = "Entrar na Plataforma",
+  children = site.cta.teste,
   variant = "gold",
   size = "md",
   className,

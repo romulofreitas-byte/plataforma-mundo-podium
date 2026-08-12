@@ -5,8 +5,6 @@ import { IconLine } from "@/components/icons/IconLine";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 
-const pagamentos = ["Pix", "Cartão", "Boleto"];
-
 export function OfferSection() {
   return (
     <SectionWrapper variant="warm" warmGlow="strong" id="oferta">
@@ -20,13 +18,24 @@ export function OfferSection() {
 
       <RevealOnScroll className="mx-auto mt-10 max-w-lg">
         <div className="glass-premium relative overflow-hidden rounded-[14px] p-6 text-center">
-          <p className="text-4xl font-extrabold text-gold">
+          <p className="text-xs font-semibold uppercase tracking-wide text-gold">
+            {site.trial.rotulo} · {site.trial.notaOferta}
+          </p>
+          <p className="mt-3 text-4xl font-extrabold text-gold">
             {site.precoMensal}
             <span className="text-lg font-medium text-muted">/mês</span>
           </p>
           {site.precoAncora && (
-            <p className="mt-1 text-sm text-muted-2">{site.precoAncora}</p>
+            <p className="mt-1 text-sm text-muted-2 line-through">
+              {site.precoAncora}
+            </p>
           )}
+          <p className="mt-3 text-sm font-medium text-muted">
+            Ou {site.precoAnual} à vista{" "}
+            <span className="text-muted-2 line-through">
+              {site.precoAnualAncora}
+            </span>
+          </p>
 
           <ul className="mt-8 space-y-3 text-left">
             {site.ofertaInclusos.map((item) => (
@@ -39,12 +48,12 @@ export function OfferSection() {
 
           <div className="mt-8">
             <CtaButton size="lg" className="w-full">
-              Entrar na Plataforma
+              {site.cta.teste}
             </CtaButton>
           </div>
 
           <div className="mt-6 flex justify-center gap-4">
-            {pagamentos.map((p) => (
+            {site.pagamentos.map((p) => (
               <span
                 key={p}
                 className="rounded-full border border-line px-3 py-1 text-xs font-semibold text-muted"
@@ -55,7 +64,9 @@ export function OfferSection() {
           </div>
 
           {site.cancelamentoLivre && (
-            <p className="mt-4 text-xs text-muted-2">Cancele quando quiser.</p>
+            <p className="mt-4 text-xs text-muted-2">
+              Cancele quando quiser — inclusive durante o teste.
+            </p>
           )}
         </div>
       </RevealOnScroll>

@@ -109,9 +109,11 @@ export const termosDeUsoSections: LegalSection[] = [
     content: (
       <>
         <p>
-          O acesso à área de membros está condicionado ao pagamento da assinatura vigente, atualmente
-          no valor de <strong>{site.precoMensal}/mês</strong>, salvo promoções comunicadas de forma
-          clara no momento da contratação.
+          O acesso à área de membros está condicionado ao pagamento da assinatura vigente.
+          O plano mensal custa <strong>{site.precoMensal}/mês</strong> após o período de teste
+          de {site.trial.dias} dias (R$ 0 no ato da adesão, conforme o checkout). Há também a
+          opção de pagamento à vista de <strong>{site.precoAnual}</strong>, quando oferecida.
+          Promoções e condições exibidas no checkout prevalecem no momento da contratação.
         </p>
         <p>
           A cobrança é recorrente e processada por provedores de pagamento integrados ao Circle ou

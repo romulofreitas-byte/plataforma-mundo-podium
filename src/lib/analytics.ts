@@ -18,14 +18,14 @@ export function trackCtaClick(eventName = "InitiateCheckout") {
     window.gtag("event", eventName, {
       event_category: "cta",
       event_label: "checkout",
-      value: site.precoMensal,
+      value: site.precoMensalNumero,
     });
   }
 
   if (isConfigured(site.metaPixelId) && window.fbq) {
     window.fbq("track", eventName, {
       content_name: site.name,
-      value: site.precoMensal,
+      value: site.precoMensalNumero,
       currency: "BRL",
     });
   }

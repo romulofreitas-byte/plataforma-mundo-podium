@@ -79,7 +79,7 @@ export function LiveRaceSection() {
           Aqui, constância tem prêmio.
         </p>
         <div className="mt-6 text-center">
-          <CtaButton>Entrar na Plataforma</CtaButton>
+          <CtaButton />
         </div>
       </RevealOnScroll>
     </SectionWrapper>

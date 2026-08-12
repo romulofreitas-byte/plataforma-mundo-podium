@@ -32,7 +32,7 @@ export function StickyCTA() {
         aria-label="Chamada para ação"
       >
         <CtaButton size="lg" className="w-full">
-          {site.precoMensal}/mês · Entrar na casa
+          {site.cta.sticky}
         </CtaButton>
       </div>
 
@@ -47,7 +47,7 @@ export function StickyCTA() {
         aria-hidden={!visible}
       >
         <CtaButton size="lg" className="shadow-gold-lg">
-          {site.precoMensal}/mês · Entrar na casa
+          {site.cta.sticky}
         </CtaButton>
       </div>
     </>

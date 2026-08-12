@@ -24,7 +24,7 @@ export function Footer() {
           {site.tagline}
         </p>
 
-        <CtaButton size="lg">Entrar na Plataforma</CtaButton>
+        <CtaButton size="lg">{site.cta.teste}</CtaButton>
 
         <nav aria-label="Redes sociais" className="flex flex-wrap justify-center gap-4">
           {socials.map((s) => (

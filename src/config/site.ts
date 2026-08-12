@@ -8,6 +8,10 @@ export type FaqItem = {
 };
 
 const precoMensal = "R$ 89,90";
+const precoMensalNumero = 89.9;
+const precoAncora = "R$ 129,90";
+const precoAnual = "R$ 899";
+const precoAnualAncora = "R$ 1.558,80";
 
 const faqItems: FaqItem[] = [
   {
@@ -52,7 +56,7 @@ const faqItems: FaqItem[] = [
   },
   {
     pergunta: "Quanto custa e como cancelo?",
-    resposta: `A assinatura é de ${precoMensal}/mês. Cancele quando quiser, sem burocracia.`,
+    resposta: `Você começa com 7 dias de teste (R$ 0 hoje). Depois a assinatura é de ${precoMensal}/mês, ou ${precoAnual} à vista no plano anual. Cancele quando quiser, sem burocracia.`,
   },
 ];
 
@@ -64,7 +68,22 @@ export const site = {
   // Landing (Vercel) — checkout permanece no Circle em plataforma.*
   url: "https://casa.mundopodium.com.br",
   precoMensal,
-  precoAncora: "",
+  precoMensalNumero,
+  precoAncora,
+  precoAnual,
+  precoAnualAncora,
+  trial: {
+    dias: 7,
+    rotulo: "7 dias de teste",
+    notaHero: `R$ 0 hoje. Depois, ${precoMensal}/mês. Cancele quando quiser.`,
+    notaOferta: "R$ 0 hoje. Depois vira a assinatura mensal.",
+  },
+  pagamentos: ["Cartão"] as const,
+  cta: {
+    teste: "Começar 7 dias de teste",
+    casa: "Entrar na casa",
+    sticky: "7 dias de teste · Entrar",
+  },
   checkoutUrl:
     "https://plataforma.mundopodium.com.br/checkout/plataforma-mundo-podium-casa",
   whatsapp: "https://wa.me/5531994293099",
@@ -101,7 +120,88 @@ export const site = {
     prints: [] as string[],
   },
   depoimentos: {
-    prints: [] as string[],
+    /** Ordem: 1º = spotlight; demais = grade. Uma pessoa = um item; partes no mesmo `images`. */
+    items: [
+      {
+        images: [
+          "/depoimentos/gallery/gallery_comunidade_guilherme-alves-elogia-argumento-do-grup_parte-1.png",
+          "/depoimentos/gallery/gallery_comunidade_guilherme-alves-elogia-argumento-do-grup_parte-2.png",
+        ],
+        highlight: "Esse grupo aqui é uma mina de ouro",
+        name: "Guilherme Alves",
+        role: "Piloto da comunidade",
+        alt: "Membro da comunidade chama o grupo de mina de ouro",
+      },
+      {
+        images: [
+          "/depoimentos/gallery/gallery_destravamento_alanis-almeida-diz-que-o-workshop-de-lig_comp-b.png",
+        ],
+        highlight: "Vira a chave pra quem está no limbo das ligações",
+        name: "Alanis Almeida",
+        role: "Membro da Casa",
+        bodyQuote:
+          "Quem está com receio de participar, eu digo PARTICIPE! Porque ter pessoas na ativa faz total diferença.",
+        alt: "Membro fala sobre destravamento e troca na comunidade",
+      },
+      {
+        images: [
+          "/depoimentos/gallery/gallery_comunidade_mayara-curitiba-cumprimenta-o-grupo-e-di.png",
+        ],
+        highlight: "Estou adorando a comunidade",
+        name: "Mayara",
+        role: "Membro da Casa",
+        alt: "Mayara de Curitiba diz que está adorando a comunidade",
+      },
+      {
+        images: [
+          "/depoimentos/gallery/gallery_comunidade_aluno-novo-elogia-a-sintonia-e-o-valor-d.png",
+        ],
+        highlight: "Tem valor demais esse grupo",
+        name: "Piloto novo",
+        role: "Membro da Casa",
+        alt: "Novo membro elogia a sintonia e o valor do grupo no primeiro dia",
+      },
+      {
+        images: [
+          "/depoimentos/gallery/gallery_comunidade_apos-live-emocional-membros-reforcam-con_parte-1.png",
+          "/depoimentos/gallery/gallery_comunidade_apos-live-emocional-membros-reforcam-con_parte-2.png",
+        ],
+        highlight: "Estamos todos na mesma jornada",
+        name: "Gabriel",
+        role: "Piloto da comunidade",
+        alt: "Membro reforça conexão e jornada compartilhada após a live",
+      },
+      {
+        images: [
+          "/depoimentos/gallery/gallery_comunidade_gente-so-facam_parte-2.png",
+          "/depoimentos/gallery/gallery_comunidade_gente-so-facam_parte-4.png",
+          "/depoimentos/gallery/gallery_comunidade_gente-so-facam_parte-1.png",
+        ],
+        highlight: "Gente, só façam!",
+        name: "André Neto",
+        role: "Piloto da comunidade",
+        bodyQuote: "Empresários dizendo: é exatamente isso que eu preciso.",
+        alt: "Membro incentiva a turma a agir e valida entrega com empresários",
+      },
+      {
+        images: [
+          "/depoimentos/gallery/gallery_comunidade_bruno-henrique-da-nota-1000-e-chama-a-en.png",
+        ],
+        highlight: "Nota 1000! Entrega absurda!",
+        name: "Bruno Henrique",
+        role: "Piloto da comunidade",
+        alt: "Bruno Henrique dá nota máxima à entrega da casa",
+      },
+      {
+        images: [
+          "/depoimentos/gallery/gallery_comunidade_victor-diz-que-a-equipe-adorou-e-pede-o.png",
+        ],
+        highlight: "Pessoal quer o link da comunidade!",
+        name: "Victor",
+        role: "Membro da Casa",
+        alt: "Victor diz que a equipe adorou e pede o link da comunidade",
+      },
+    ],
   },
   autoridade: {
     foto: "/romulo.jpg",

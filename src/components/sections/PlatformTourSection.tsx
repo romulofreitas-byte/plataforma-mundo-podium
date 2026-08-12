@@ -44,7 +44,7 @@ export function PlatformTourSection() {
           de Piloto.
         </p>
         <div className="mt-6">
-          <CtaButton>Entrar na Plataforma</CtaButton>
+          <CtaButton />
         </div>
       </RevealOnScroll>
     </SectionWrapper>

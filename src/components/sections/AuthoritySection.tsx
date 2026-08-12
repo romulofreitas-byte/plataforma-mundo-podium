@@ -25,7 +25,7 @@ export function AuthoritySection() {
             className="text-3xl sm:text-4xl"
           />
           <p className="mt-6 text-base font-medium leading-relaxed text-muted">
-            Criador do Método Pódium, CEO da Combustível Marketing e Vendas, +12
+            Criador do Método Pódium, CEO Mundo Pódium, +12
             anos em vendas. Faz <strong className="text-white">ligações reais ao vivo</strong> no
             YouTube — skin in the game. Você aprende com quem liga, não com quem
             só fala sobre ligar.

@@ -9,6 +9,7 @@ const audience = [
   "Freelancers e prestadores travados no cold call",
   "SDRs/BDRs que querem converter mais",
   "Donos de agência e líderes comerciais",
+  "Corretores e consultores de seguros e plano de saúde",
   "Assessores de investimento (mercado regulado)",
   "Qualquer um que depende do telefone pra gerar negócio",
 ];

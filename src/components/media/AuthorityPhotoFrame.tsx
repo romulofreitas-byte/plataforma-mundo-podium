@@ -30,7 +30,7 @@ export function AuthorityPhotoFrame({ src, alt }: AuthorityPhotoFrameProps) {
           src={src}
           alt={alt}
           fill
-          className={`object-cover transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"}`}
+          className={`object-cover object-top transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"}`}
           sizes="(max-width: 768px) 100vw, 400px"
           onLoad={() => setLoaded(true)}
           onError={() => setError(true)}

@@ -1,7 +1,7 @@
 import { site } from "@/config/site";
 
 export function getProductJsonLd() {
-  const price = site.precoMensal.replace(/[^\d,]/g, "").replace(",", ".");
+  const price = site.precoMensalNumero.toFixed(2);
 
   return {
     "@context": "https://schema.org",
@@ -23,6 +23,13 @@ export function getProductJsonLd() {
       )
         .toISOString()
         .split("T")[0],
+      seller: {
+        "@type": "Organization",
+        name: "MUNDO PODIUM LTDA",
+        taxID: site.legal.cnpj,
+        email: site.legal.email,
+        url: site.url,
+      },
     },
   };
 }
